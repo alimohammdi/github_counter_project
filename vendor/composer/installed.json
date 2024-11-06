@@ -1,0 +1,91 @@
+{
+    "packages": [
+        {
+            "name": "academy01/input-sanitizer",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mhnobakht/input-sanitizer.git",
+                "reference": "289de8de1f3da0eaac6a754f3f33753f05c0001e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mhnobakht/input-sanitizer/zipball/289de8de1f3da0eaac6a754f3f33753f05c0001e",
+                "reference": "289de8de1f3da0eaac6a754f3f33753f05c0001e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "time": "2024-03-03T09:54:19+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "Academy01\\InputSanitizer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mhnobakht",
+                    "email": "01programmingacademy@gmail.com"
+                }
+            ],
+            "description": "PHP Package to Sanitizes a String or Array to prevent common Vulnerabilities",
+            "support": {
+                "issues": "https://github.com/mhnobakht/input-sanitizer/issues",
+                "source": "https://github.com/mhnobakht/input-sanitizer/tree/main"
+            },
+            "install-path": "../academy01/input-sanitizer"
+        },
+        {
+            "name": "academy01/semej",
+            "version": "v1.0.0.x-dev",
+            "version_normalized": "1.0.0.9999999-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mhnobakht/Semej.git",
+                "reference": "d47b4b8c3ccb31835e935580d244d009b7c50ff0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mhnobakht/Semej/zipball/d47b4b8c3ccb31835e935580d244d009b7c50ff0",
+                "reference": "d47b4b8c3ccb31835e935580d244d009b7c50ff0",
+                "shasum": ""
+            },
+            "time": "2023-07-20T16:51:10+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "Academy01\\Semej\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "'academy01'",
+                    "email": "80899303+mhnobakht@users.noreply.github.com"
+                }
+            ],
+            "description": "Simple package to show alert messages using session",
+            "support": {
+                "issues": "https://github.com/mhnobakht/Semej/issues",
+                "source": "https://github.com/mhnobakht/Semej/tree/v1.0.0"
+            },
+            "install-path": "../academy01/semej"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

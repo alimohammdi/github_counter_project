@@ -1,5 +1,8 @@
 <?php
 namespace Class;
+
+use Academy01\Semej\Semej;
+
 require_once 'autoloader.php';
 
 
@@ -10,13 +13,13 @@ class Register{
      public function __construct($data)
      {
         $this->data  = $data;
-
+          
         if($this->confirm_password()){
                 $this->register();
         }else{
-                echo 'پسوورد ها برابر نیست';
+                Semej::set('danger', 'Error', 'password not confirmed');  ;
         }
-        
+        header('location : register.php');die;
      }
 
 
@@ -30,9 +33,9 @@ class Register{
         $adduser = new Database();
 
        if( $adduser->insert('users',$userdata)){
-            echo ' you are login ';
+        Semej::set('success','Ok','user rigister successfuly .');
        }else{
-             echo '  you are not login ';       
+        Semej::set('danger', 'Error', 'Rigister failed !');       
        }
  
      }

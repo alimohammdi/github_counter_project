@@ -1,11 +1,14 @@
 <?php 
 
 require_once 'autoloader.php';
+require_once 'vendor/autoload.php';
 
+use Academy01\InputSanitizer\InputSanitizer;
+use Academy01\Semej\Semej;
 use Class\Register;
 
 if(isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
-  $data = $_POST['frm'];
+  $data = InputSanitizer::sanitize( $_POST['frm']);
     $register = new Register($data);
 } 
 
@@ -32,6 +35,7 @@ if(isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 <body class="register-page bg-body-secondary">
     <div class="register-box">
         <div class="register-logo"> <a href="../index2.html"><b>Admin</b>LTE</a> </div> <!-- /.register-logo -->
+        <?php  Semej::show()  ?> 
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="register-box-msg">Register a new membership</p>
