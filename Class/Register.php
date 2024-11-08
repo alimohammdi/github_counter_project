@@ -19,7 +19,7 @@ class Register{
         }else{
                 Semej::set('danger', 'Error', 'password not confirmed');  ;
         }
-        header('location : register.php');die;
+        header('location: register.php') ;die();
      }
 
 
