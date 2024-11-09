@@ -1,10 +1,25 @@
- 
 <?php 
 
- 
+// Auth 
+ use  Academy01\AuthToken\AuthToken;
+ use   Academy01\Semej\Semej;
+
+ require_once 'vendor/autoload.php';
+
+ if (!AuthToken::check()){
+    Semej::set('danger','error','you should login first !!');
+    header('Location: login.php');
+ }
+
+ // Logout 
+ if(isset($_GET['Logout'])){
+    AuthToken::delete();
+    header('Location: login.php');
+ }
+
+ // set URL 
 $pagePath  = '';
 
- 
 if(isset($_GET['page'])){
     $basePase = __DIR__.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR;
 
@@ -52,6 +67,13 @@ if(isset($_GET['page'])){
                     <li class="nav-item"> <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button"> <i class="bi bi-list"></i> </a> </li>
                     <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Home</a> </li>
                     <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Contact</a> </li>
+                    <li class="nav-item d-none d-md-block"> 
+                        <a href="<?php  echo htmlspecialchars($_SERVER['PHP_SELF']).'?Logout'  ?>" class="nav-link">
+                        <button  name="logout" class = 'btn btn-danger'>
+                        Logout
+                        </button>
+                        </a> </li>
+
                 </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
                 <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
                     <li class="nav-item"> <a class="nav-link" data-widget="navbar-search" href="#" role="button"> <i class="bi bi-search"></i> </a> </li> <!--end::Navbar Search--> <!--begin::Messages Dropdown Menu-->
@@ -152,7 +174,7 @@ if(isset($_GET['page'])){
             </div> <!--end::Sidebar Wrapper-->
         </aside> <!--end::Sidebar--> <!--begin::App Main-->
         <main class="app-main"> <!--begin::App Content Header-->
-               <?php include_once $pagePath ?>
+               
  
         </main> <!--end::App Main--> <!--begin::Footer-->
         <footer class="app-footer"> <!--begin::To the end-->

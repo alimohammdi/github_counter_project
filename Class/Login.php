@@ -2,6 +2,8 @@
 
 namespace class;
 use Academy01\Semej\Semej;
+use Academy01\AuthToken\AuthToken;
+
 class login {
 
 
@@ -29,8 +31,9 @@ class login {
                 Semej::set('danger', 'Error', 'user or password not incorrect');
                 header('location: login.php');die();
            }else{
- 
-                header('Location: index.php') ;die();
+               $_SESSION['email']  = $email ; 
+               AuthToken::generate();
+                header('Location: dashboard.php') ;die();
            } 
         }
 

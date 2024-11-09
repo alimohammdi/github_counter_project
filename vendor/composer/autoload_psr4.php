@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Academy01\\Semej\\' => array($vendorDir . '/academy01/semej/src'),
     'Academy01\\InputSanitizer\\' => array($vendorDir . '/academy01/input-sanitizer/src'),
+    'Academy01\\AuthToken\\' => array($vendorDir . '/academy01/auth-token/src'),
 );

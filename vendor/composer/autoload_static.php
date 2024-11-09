@@ -11,6 +11,7 @@ class ComposerStaticInit159df091efce4cfff01a702d34ef5e8c
         array (
             'Academy01\\Semej\\' => 16,
             'Academy01\\InputSanitizer\\' => 25,
+            'Academy01\\AuthToken\\' => 20,
         ),
     );
 
@@ -22,6 +23,10 @@ class ComposerStaticInit159df091efce4cfff01a702d34ef5e8c
         'Academy01\\InputSanitizer\\' => 
         array (
             0 => __DIR__ . '/..' . '/academy01/input-sanitizer/src',
+        ),
+        'Academy01\\AuthToken\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/academy01/auth-token/src',
         ),
     );
 
