@@ -1,13 +1,13 @@
 <?php 
+namespace class;
+use class\Link;
+require_once 'autoloader.php';
+require_once 'vendor/autoload.php';
 
-// Auth 
- use  Academy01\AuthToken\AuthToken;
- use   Academy01\Semej\Semej;
+use  Academy01\AuthToken\AuthToken;
+use   Academy01\Semej\Semej;
 
- require_once 'vendor/autoload.php';
- require_once 'autoloader.php';
-
- if (!AuthToken::check()){
+if (!AuthToken::check()){
     Semej::set('danger','error','you should login first !!');
     header('Location: login.php');
  }
@@ -18,29 +18,31 @@
     header('Location: login.php');
  }
 
- // set URL 
-$pagePath  = '';
 
-if(isset($_GET['page'])){
-    $basePase = __DIR__.DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR;
-
-    $pageParameter = $_GET['page'];
-     
-    $pageName = pathinfo($pageParameter,PATHINFO_FILENAME);
-     $pageName = preg_replace("/[^A-Za-z0-9]/",'',$pageName);
-    $pagePath =  $basePase.$pageName.'.php';
-
-    if(!file_exists($pagePath)){
-        $pagePath = $basePase . "test.php";
-    }
+if($_SERVER['REQUEST_METHOD'] ===  'POST'){
+        if (isset($_POST['title'])){
+                $title = $_POST['title'];
+                $link = new Link($title);
+                $link->addLink();
+                
+                
+        }
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en"> <!--begin::Head-->
 
@@ -173,7 +175,25 @@ if(isset($_GET['page'])){
             </div> <!--end::Sidebar Wrapper-->
         </aside> <!--end::Sidebar--> <!--begin::App Main-->
         <main class="app-main"> <!--begin::App Content Header-->
-                <?php    require_once 'index.php'  ?> 
+               <!-- // new page  -->
+               <div class="row   ">
+        <div class="col-12 m-3 p-4">
+                <h2>Add New Link</h2>
+                <hr>
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']).'?page=new'; ?>" method="post">
+                        <div class=" form-group p-2">
+                                <label for="title">Title</label><br>
+                                <input type="text" name="title" placeholder="link title" required class="form-conrtol">
+
+                        </div>
+                        <div class="form-group p-2">
+                                <input type="submit" value="create" class="form-control btn btn-primary">
+                
+                        </div>
+
+                </form>
+        </div>
+</div>
  
         </main> <!--end::App Main--> <!--begin::Footer-->
         <footer class="app-footer"> <!--begin::To the end-->

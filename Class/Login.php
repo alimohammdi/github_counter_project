@@ -31,7 +31,8 @@ class login {
                 Semej::set('danger', 'Error', 'user or password not incorrect');
                 header('location: login.php');die();
            }else{
-               $_SESSION['email']  = $email ; 
+               $_SESSION['email']  = $user['email'] ; 
+               $_SESSION['id']   = $user['id'];
                AuthToken::generate();
                 header('Location: dashboard.php') ;die();
            } 
