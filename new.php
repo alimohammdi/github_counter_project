@@ -22,8 +22,8 @@ if (!AuthToken::check()){
 if($_SERVER['REQUEST_METHOD'] ===  'POST'){
         if (isset($_POST['title'])){
                 $title = $_POST['title'];
-                $link = new Link($title);
-                $link->addLink();
+                $link = new Link();
+                $link->addLink($title);
                 
                 
         }

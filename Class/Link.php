@@ -13,14 +13,15 @@ class Link {
         protected $data;
         protected $connection ;
 
-        public function  __construct($data){
-                $this->data = $data ; 
+        public function  __construct(){
+                
                 $this->connection = new Database();
 
                
         }
 
-        public function addLink(){
+        public function addLink($data){
+              $this->data = $data ; 
               $title  = $this->data;
               $id = $_SESSION['id'];
               $uuid = uniqid('create_newlink_');
@@ -36,6 +37,14 @@ class Link {
                         Semej::set('success','ok','add link successfuly');
                         header('Location: dashboard.php');
                 }
+        }
+
+        public function showLink(){
+
+                $uuid = $_SESSION['id'];
+                $links  = $this->connection->selectAllcondition('links','user_id='.$uuid);
+
+                return $links;
         }
 
 
