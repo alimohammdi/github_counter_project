@@ -47,6 +47,23 @@ class Link {
                 return $links;
         }
 
+        public function incrementCounter($uuid){
+              
+        $link =  $this->connection->select('links',"uuid='$uuid'");
+        if ($link === false){
+                echo 'Error connection to database';
+        }
+
+        $updatdata = [
+                'counter'  => ++$link['counter']
+        ];
+
+        $update  = $this->connection->update('links',$updatdata,"uuid='$uuid'");
+
+        var_dump($update);
+
+        }
+
 
 }
 
